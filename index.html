@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" type="text/css" href="src/pages/main/main.css"/>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="https://cdn-icons-png.flaticon.com/512/1802/1802328.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="src/normalize.css"/>
+    <title>Главная</title>
+</head>
+
+
+<body>
+
+<main>
+    <section class="left-side">
+        <a href="/" class="logo">
+            ALCOBANK
+        </a>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">
+                        <img src="/svg/main/Home.svg" alt="">
+                        <h2> Главная</h2>
+                    </a>
+                </li>
+                <li>
+                    <a href="/transfers">
+                        <img src="/svg/main/RightArrowSquare.svg" alt="">
+                        <h2 class="inactive">Переводы</h2>
+                    </a>
+
+                </li>
+
+                <li>
+                    <a href="/history">
+                        <img src="/svg/main/Chart.svg" alt="">
+                        <h2 class="inactive">История</h2>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="main-part">
+        <div class="search">
+            <label for="search"></label><input type="text" placeholder="Поиск" id="search" name="Поиск">
+        </div>
+
+        <section id="wallet">
+            <h2>Кошелёк</h2>
+            <div class="all-money">58 000, 18 ₽</div>
+            <ul>
+                <li class="wallet-cell" id="all-card">
+                    <img src="/svg/main/Card.svg" alt="">
+
+                    <div class="text-holder">
+                        <p>
+                            29 000, 09 ₽
+                        </p>
+                        <p class="secondary">
+                            ВСЕГО ДЕНЕГ
+                        </p>
+                    </div>
+                </li>
+
+                <li class="wallet-cell" id="all-deposit">
+                    <img src="/svg/main/DollarDeposit.svg" alt="">
+
+                    <div class="text-holder">
+                        <p>
+                            29 000, 09 ₽
+                        </p>
+                        <p class="secondary">
+                            20% годовых
+                        </p>
+                    </div>
+                </li>
+
+                <li class="wallet-cell" id="all-cashback">
+                    <img src="/svg/main/Cashback.svg" alt="">
+
+                    <div class="text-holder">
+                        <p>
+                            29 000
+                        </p>
+                        <p class="secondary">
+                            Кэшбек
+                        </p>
+                    </div>
+                </li>
+
+                <li class="wallet-cell" id="new-account">
+                    <a href="/accounts/new">
+                        <img src="/svg/main/PlusCircle.svg" alt="">
+
+                        <div class="text-holder">
+                            <p>
+                                Оформить
+                            </p>
+                            <p class="secondary">
+                                карту или счёт
+                            </p>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="wallet-cell" id="get-all-accounts">
+                    <a href="/accounts">
+                        <div class="arrow-holder">
+                            <img src="/svg/main/RightArrow.svg" alt="">
+                        </div>
+
+                        <div class="text-holder">
+                            <p>
+                                Все счета
+                            </p>
+                            <p class="secondary">
+                                карты и бонусы
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="history">
+            <div class="header">
+                <h2>История</h2>
+
+                <a href="/history"><p class="secondary">
+                    Все
+                </p>
+                </a>
+            </div>
+            <ul>
+                <li>
+                    <a href="/operation/1">
+                        <div class="image">
+                            <img src="/svg/main/VectorUp.svg" alt="">
+                            <img src="/svg/main/VBankLogo.png" alt="" class="bank-logo VBank">
+                        </div>
+                        <div class="text-and-money">
+                            <div class="text">
+                                <p class="name">Иван Иванович И.</p>
+                                <p class="secondary description">Сегодня • Перевод по СПБ </p>
+                            </div>
+                            <p class="money">1 000 ₽</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/operation/2">
+
+                        <div class="image">
+                            <img src="/svg/main/VectorUp.svg" alt="">
+                            <img src="/svg/main/ABankLogo.png" alt="" class="bank-logo ABank">
+                        </div>
+                        <div class="text-and-money">
+                            <div class="text">
+                                <p class="name">Иван Иванович И.</p>
+                                <p class="secondary description">Вчера • Оплата товаров и услуг </p>
+                            </div>
+                            <p class="money">1 000 ₽</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/operation/3">
+
+                        <div class="image">
+                            <img src="/svg/main/VectorDown.svg" alt="">
+                            <img src="/svg/main/SBankLogo.png" alt="" class="bank-logo SBank">
+                        </div>
+                        <div class="text-and-money">
+                            <div class="text">
+                                <p class="name">Иван Иванович И.</p>
+                                <p class="secondary description">7 ноября • Перевод по СПБ</p>
+                            </div>
+                            <p class="money plus">+1 000 ₽</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="my-cards">
+            <div class="header">
+                <h2>Мои карты</h2>
+                <a href="/accounts">
+                    <p class="secondary">
+                        Все
+                    </p>
+                </a>
+            </div>
+            <ul>
+                <li class="wallet-cell stroked">
+                    <a href="/accounts/1">
+                        <div class="header">
+                            <img src="/svg/main/Card.svg" alt="">
+
+                            <img src="/svg/main/VBankLogo.png" alt="" class="bank-logo">
+                        </div>
+
+                        <div class="text-holder">
+                            <p>
+                                29 000, 09 ₽
+                            </p>
+                            <p class="secondary">
+                                MIR Classic •• 0229
+                            </p>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="wallet-cell stroked">
+                    <a href="/accounts/2">
+
+                        <div class="header">
+                            <img src="/svg/main/Card.svg" alt="">
+
+                            <img src="/svg/main/ABankLogo.png" alt="" class="bank-logo">
+                        </div>
+
+                        <div class="text-holder">
+                            <p>
+                                29 000, 09 ₽
+                            </p>
+                            <p class="secondary">
+                                Mastercard •• 3214
+                            </p>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="wallet-cell stroked">
+                    <a href="/accounts/3">
+
+                        <div class="header">
+                            <img src="/svg/main/Card.svg" alt="">
+
+                            <img src="/svg/main/SBankLogo.png" alt="" class="bank-logo">
+                        </div>
+
+                        <div class="text-holder">
+                            <p>
+                                29 000, 09 ₽
+                            </p>
+                            <p class="secondary">
+                                Visa •• 8632
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="transfers">
+            <div class="header">
+                <h2>Переводы</h2>
+                <a href="/transfers">
+                    <p class="secondary">
+                        Все
+                    </p>
+                </a>
+            </div>
+            <ul>
+                <li class="wallet-cell stroked">
+                    <div class="header">
+                        <img src="/svg/main/ArrowSwapHorizontal.svg" alt="">
+
+                    </div>
+
+                    <div class="text-holder">
+                        <p>
+                            Между<br>своими
+                        </p>
+                    </div>
+                </li>
+
+                <li class="wallet-cell stroked">
+                    <div class="header">
+                        <img src="/svg/main/SBP_Logo.svg" alt="">
+                    </div>
+
+                    <div class="text-holder">
+                        <p>
+                            Через<br>СБП
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="month-expenses">
+            <div class="header">
+                <h2>Расходы в ноябре</h2>
+                <p class="secondary">
+                    Все
+                </p>
+            </div>
+            <ul>
+                <li>
+                    <div class="image">
+                        <img src="/svg/main/VectorUp.svg" alt="">
+                    </div>
+                    <div class="text-and-money">
+                        <div class="text">
+                            <p class="name">Продукты</p>
+                        </div>
+                        <p class="money">1 000 ₽</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="image">
+                        <img src="/svg/main/VectorUp.svg" alt="">
+                    </div>
+                    <div class="text-and-money">
+                        <div class="text">
+                            <p class="name">Образование</p>
+                        </div>
+                        <p class="money">1 000 ₽</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="image">
+                        <img src="/svg/main/VectorUp.svg" alt="">
+                    </div>
+                    <div class="text-and-money">
+                        <div class="text">
+                            <p class="name">Кофейни</p>
+                        </div>
+                        <p class="money">1 000 ₽</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </section>
+
+    <section class="right-side">
+        <a href="/profile"> <img src="/svg/main/ProfileSquare.svg" alt="Профиль"></a>
+        <a href="/logout"> <img src="/svg/main/LogOut.svg" alt="Выйти"></a>
+    </section>
+
+    <script type="module" src="/src/pages/main/main.ts"></script>
+</main>
+
+
+</body>
+
+
+</html>
+

@@ -1,0 +1,483 @@
+/* Inter Variable (opsz, wght) */
+@font-face {
+    font-family: 'Inter';
+    src: url('/public/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;   /* доступный диапазон веса */
+    font-style: normal;      /* в этом файле нет italic */
+    font-display: swap;
+}
+
+:root {
+    --light-text-primary: #000;
+    --light-text-secondary: #878787;
+    --light-text-incomemoney: #148f2b;
+    --light-background-secondary: #f1f1f1;
+    --light-background-primary: #fff;
+    --light-background-detail: #e9e9e9;
+    --vbank-logo: #6590ff;
+    --abank-logo: #ff4890;
+    --sbank-logo: #1fd5a7;
+}
+
+:root {
+    --font-family: "Inter", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+h2 {
+    font-family: var(--font-family), sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--light-text-primary);
+    margin-block: 0;
+}
+
+h2.inactive {
+    color: var(--light-text-secondary);
+}
+
+ul, ol {
+    list-style: none; /* без маркеров/номеров */
+    margin: 0; /* сброс дефолтных отступов браузера */
+    padding: 0;
+}
+
+.logo {
+    font-family: var(--font-family), sans-serif;
+    font-weight: 700;
+    line-height: 3.5rem;
+    font-size: 36px;
+    color: var(--light-text-primary);
+    text-decoration: none; /* без подчёркивания */
+    cursor: inherit;
+}
+
+p {
+    font-family: var(--font-family), sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--light-text-primary);
+    margin: 0 !important;
+    line-height: 1
+}
+
+p.secondary {
+    font-family: var(--font-family), sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--light-text-secondary);
+}
+
+body {
+    font-family: var(--font-family), sans-serif;
+    background: var(--light-background-secondary);
+    line-height: 1 !important;
+}
+
+main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 0;
+    padding: 30px 100px;
+    width: 100%;
+    height: 100%;
+}
+
+main > * {
+    flex: 1 1 0; /* grow=1, shrink=1, basis=0 → равные доли */
+    min-width: 0; /* важно: разрешить ужиматься содержимому */
+    box-sizing: border-box;
+}
+
+.left-side {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.left-side nav ul {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.left-side nav ul a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+
+.main-part {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 50vw !important;
+    width: 50vw;
+    flex-shrink: 0;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 10px;
+    border-radius: 16px;
+    padding: 20px 30px;
+    width: 100%;
+    height: 3.5rem;
+    background: var(--light-background-detail);
+}
+
+.main-part input#search {
+    border: none;
+    background: none;
+    padding: 0;
+    width: 100%;
+    font-family: var(--font-family), sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--light-text-secondary);
+
+    all: unset; /* сносит ВСЁ авторское и UA, включая display */
+    display: inline-block; /* вернуть поведение */
+    box-sizing: border-box;
+
+    background: transparent;
+
+    /* убрать хром/ios-стили */
+    appearance: none;
+    -webkit-appearance: none;
+
+    /* на всякий */
+    border: 0;
+    margin: 0;
+    outline: none;
+
+}
+
+.main-part section {
+    background-color: var(--light-background-primary);
+    width: 100%;
+    border-radius: 20px;
+    padding: 25px 20px;
+}
+
+
+.main-part section .header {
+    line-height: normal;
+}
+
+section#wallet {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 25px;
+
+    border-radius: 20px;
+    padding: 25px 0 25px 20px;
+    width: 100%;
+
+    background: linear-gradient(135deg, #d6e0ff 0%, #f5e4f1 100%);
+}
+
+section#wallet .all-money {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+
+    border-radius: 10px;
+    padding: 10px;
+
+    background: #d7f8ff;
+
+    font-family: var(--font-family), sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--light-text-primary);
+}
+
+section#wallet ul {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-right: 20px;
+}
+
+li.wallet-cell {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+
+    border-radius: 20px;
+    padding: 12px 16px;
+    aspect-ratio: 1;
+
+    width: 150px;
+    height: 150px;
+
+    flex-shrink: 0;
+    transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    background: var(--light-background-primary);
+}
+
+li.wallet-cell:hover {
+    background: var(--light-background-detail);
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    li.wallet-cell {
+        transition: none;
+    }
+}
+
+
+li.wallet-cell a {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+
+    aspect-ratio: 1;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+li.wallet-cell.stroked {
+    border: 1px;
+    border-style: solid;
+    border-color: var(--light-text-secondary);
+}
+
+
+li.wallet-cell .text-holder {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+li.wallet-cell .arrow-holder {
+    border-radius: 6px;
+    aspect-ratio: 1;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-background-detail);
+}
+
+section#history {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 20px;
+    padding: 25px 20px;
+}
+
+img.bank-logo {
+    width: 16px;
+    height: 16px;
+    aspect-ratio: 1;
+}
+
+
+section .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+.main-part section ul {
+    width: 100%;
+}
+
+section#history li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px 0;
+    width: 100%;
+    background: var(--light-background-primary);
+}
+
+section#history li a {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 20px;
+
+    width: 100%;
+}
+
+
+li .image {
+    position: relative;
+    flex-shrink: 0;
+}
+
+li .image img.bank-logo {
+    position: absolute;
+    right: 0;
+    top: 14px;
+    left: 16px;
+    bottom: 0;
+}
+
+section#history .text-and-money {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+section#history .text-and-money .plus {
+    color: var(--light-text-incomemoney);
+}
+
+section#history .text {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 6px;
+}
+
+section#my-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+section#my-cards ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 10px;
+    padding: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    width: 100%;
+}
+
+section#transfers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+section#transfers ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 10px;
+
+    padding: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    width: 100%;
+}
+
+section#month-expenses {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 20px;
+    padding: 25px 20px;
+    width: 100%;
+
+    background: var(--light-background-primary);
+}
+
+section#month-expenses ul {
+    gap: 10px;
+    width: 100%;
+}
+
+section#month-expenses li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 12px;
+
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid var(--light-text-secondary);
+}
+
+section#month-expenses li .text-and-money {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.right-side {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.right-side img {
+    aspect-ratio: 1/1;
+    height: 2.8rem;
+}
