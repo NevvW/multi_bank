@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - DOMAIN=${DOMAIN}
+    volumes:
+      - certbot-www:/var/www/certbot
+      - letsencrypt:/etc/letsencrypt
+
+  certbot:
+    image: certbot/certbot:latest
+    restart: unless-stopped
+    depends_on:
+      - frontend
+    environment:
+      - LETSENCRYPT_DOMAIN=${DOMAIN}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+      - RENEW_INTERVAL=${RENEW_INTERVAL:-12h}
+      - LETSENCRYPT_STAGING=${LETSENCRYPT_STAGING:-0}
+    volumes:
+      - certbot-www:/var/www/certbot
+      - letsencrypt:/etc/letsencrypt
+      - ./docker/certbot/entrypoint.sh:/opt/certbot/entrypoint.sh:ro
+    entrypoint: ["/bin/sh", "/opt/certbot/entrypoint.sh"]
+
+volumes:
+  certbot-www:
+  letsencrypt:
