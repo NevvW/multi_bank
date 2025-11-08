@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" type="text/css" href="/src/standartize.css"/>
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="https://cdn-icons-png.flaticon.com/512/1802/1802328.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="/src/normalize.css"/>
+
+    <title>Новый счёт</title>
+</head>
+
+
+<body>
+
+<main>
+    <section class="left-side">
+        <a href="/" class="logo">
+            ALCOBANK
+        </a>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="/"
+                       onclick="
+                             if (document.referrer && new URL(document.referrer).origin === location.origin) {
+                               history.back();
+                               return false; // отменяем переход по href
+                             }
+                           ">
+                        <img src="/svg/main/Undo.svg" alt="">
+                        <h2 class="inactive">Назад</h2>
+                    </a>
+
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="main-part">
+        <div class="search">
+            <label for="search"></label><input type="text" placeholder="Поиск" id="search" name="Поиск">
+        </div>
+
+        <section id="choose-bank">
+            <h2>Выберите банк</h2>
+            <div class="bank-holder">
+                <button id="VBank" class="disabled" type="button">
+                    <img src="/svg/bankLogo/VBankLogo.png" alt="">
+                    <span>VBank</span>
+                </button>
+
+                <button id="ABank" class="disabled" type="button">
+                    <img src="/svg/bankLogo/ABankLogo.png" alt="">
+                    <span>ABank</span>
+                </button>
+
+                <button id="SBank" class="disabled" type="button">
+                    <img src="/svg/bankLogo/SBankLogo.png" alt="">
+                    <span>SBank</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="choose-type-card">
+            <h2>Выберите тип счёта</h2>
+            <div class="type-holder">
+                <button id="debet" class="disabled" type="button">
+                    <img src="/svg/main/Card.svg" alt="">
+                    <span>Дебетовая карта</span>
+                </button>
+
+                <button id="credit" class="disabled" type="button">
+                    <img src="/svg/main/CreditCard.svg" alt="">
+                    <span>Кредитная карта</span>
+                </button>
+
+                <button id="deposit" class="disabled" type="button">
+                    <img src="/svg/main/DollarDeposit.svg" alt="">
+                    <span>Накопительный счёт</span>
+                </button>
+            </div>
+        </section>
+
+        <button type="submit" id="open" class="disabled" disabled>
+            Открыть счёт
+        </button>
+    </section>
+
+    <section class="right-side">
+        <a href="/profile"> <img src="/svg/main/ProfileSquare.svg" alt="Профиль"></a>
+        <a href="/logout"> <img src="/svg/main/LogOut.svg" alt="Выйти"></a>
+    </section>
+
+
+</main>
+
+<footer>
+    <h2>© Это было не просто смело</h2>
+    <h2>ALCOBANK — лучший мультибанк для жизни и бизнеса</h2>
+</footer>
+
+<script type="module" src="create_account.ts" defer></script>
+
+</body>
+</html>
+

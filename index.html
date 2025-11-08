@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
+    <link rel="stylesheet" type="text/css" href="src/standartize.css"/>
     <link rel="stylesheet" type="text/css" href="src/pages/main/main.css"/>
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="https://cdn-icons-png.flaticon.com/512/1802/1802328.png"/>
@@ -27,7 +28,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/transfers">
+                    <a href="/transfers/">
                         <img src="/svg/main/RightArrowSquare.svg" alt="">
                         <h2 class="inactive">Переводы</h2>
                     </a>
@@ -35,7 +36,7 @@
                 </li>
 
                 <li>
-                    <a href="/history">
+                    <a href="/history/">
                         <img src="/svg/main/Chart.svg" alt="">
                         <h2 class="inactive">История</h2>
                     </a>
@@ -93,7 +94,7 @@
                 </li>
 
                 <li class="wallet-cell" id="new-account">
-                    <a href="/accounts/new">
+                    <a href="/accounts/new/">
                         <img src="/svg/main/PlusCircle.svg" alt="">
 
                         <div class="text-holder">
@@ -108,7 +109,7 @@
                 </li>
 
                 <li class="wallet-cell" id="get-all-accounts">
-                    <a href="/accounts">
+                    <a href="/accounts/">
                         <div class="arrow-holder">
                             <img src="/svg/main/RightArrow.svg" alt="">
                         </div>
@@ -130,17 +131,17 @@
             <div class="header">
                 <h2>История</h2>
 
-                <a href="/history"><p class="secondary">
+                <a href="/history/"><p class="secondary">
                     Все
                 </p>
                 </a>
             </div>
             <ul>
                 <li>
-                    <a href="/operation/1">
+                    <a href="/operation/1/">
                         <div class="image">
                             <img src="/svg/main/VectorUp.svg" alt="">
-                            <img src="/svg/main/VBankLogo.png" alt="" class="bank-logo VBank">
+                            <img src="/svg/bankLogo/VBankLogo.png" alt="" class="bank-logo VBank">
                         </div>
                         <div class="text-and-money">
                             <div class="text">
@@ -152,11 +153,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/operation/2">
+                    <a href="/operation/2/">
 
                         <div class="image">
                             <img src="/svg/main/VectorUp.svg" alt="">
-                            <img src="/svg/main/ABankLogo.png" alt="" class="bank-logo ABank">
+                            <img src="/svg/bankLogo/ABankLogo.png" alt="" class="bank-logo ABank">
                         </div>
                         <div class="text-and-money">
                             <div class="text">
@@ -168,11 +169,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/operation/3">
+                    <a href="/operation/3/">
 
                         <div class="image">
                             <img src="/svg/main/VectorDown.svg" alt="">
-                            <img src="/svg/main/SBankLogo.png" alt="" class="bank-logo SBank">
+                            <img src="/svg/bankLogo/SBankLogo.png" alt="" class="bank-logo SBank">
                         </div>
                         <div class="text-and-money">
                             <div class="text">
@@ -189,7 +190,7 @@
         <section id="my-cards">
             <div class="header">
                 <h2>Мои карты</h2>
-                <a href="/accounts">
+                <a href="/accounts/">
                     <p class="secondary">
                         Все
                     </p>
@@ -197,11 +198,11 @@
             </div>
             <ul>
                 <li class="wallet-cell stroked">
-                    <a href="/accounts/1">
+                    <a href="/accounts/1/">
                         <div class="header">
                             <img src="/svg/main/Card.svg" alt="">
 
-                            <img src="/svg/main/VBankLogo.png" alt="" class="bank-logo">
+                            <img src="/svg/bankLogo/VBankLogo.png" alt="" class="bank-logo">
                         </div>
 
                         <div class="text-holder">
@@ -216,12 +217,12 @@
                 </li>
 
                 <li class="wallet-cell stroked">
-                    <a href="/accounts/2">
+                    <a href="/accounts/2/">
 
                         <div class="header">
                             <img src="/svg/main/Card.svg" alt="">
 
-                            <img src="/svg/main/ABankLogo.png" alt="" class="bank-logo">
+                            <img src="/svg/bankLogo/ABankLogo.png" alt="" class="bank-logo">
                         </div>
 
                         <div class="text-holder">
@@ -236,12 +237,12 @@
                 </li>
 
                 <li class="wallet-cell stroked">
-                    <a href="/accounts/3">
+                    <a href="/accounts/3/">
 
                         <div class="header">
                             <img src="/svg/main/Card.svg" alt="">
 
-                            <img src="/svg/main/SBankLogo.png" alt="" class="bank-logo">
+                            <img src="/svg/bankLogo/SBankLogo.png" alt="" class="bank-logo">
                         </div>
 
                         <div class="text-holder">
@@ -260,7 +261,7 @@
         <section id="transfers">
             <div class="header">
                 <h2>Переводы</h2>
-                <a href="/transfers">
+                <a href="/transfers/">
                     <p class="secondary">
                         Все
                     </p>
@@ -268,28 +269,35 @@
             </div>
             <ul>
                 <li class="wallet-cell stroked">
-                    <div class="header">
-                        <img src="/svg/main/ArrowSwapHorizontal.svg" alt="">
+                    <a href="/transfers/switch/">
 
-                    </div>
+                        <div class="header">
+                            <img src="/svg/main/ArrowSwapHorizontal.svg" alt="">
 
-                    <div class="text-holder">
-                        <p>
-                            Между<br>своими
-                        </p>
-                    </div>
+                        </div>
+                        <div class="text-holder">
+
+                            <p>
+                                Между<br>своими
+                            </p>
+                        </div>
+                    </a>
+
                 </li>
 
                 <li class="wallet-cell stroked">
-                    <div class="header">
-                        <img src="/svg/main/SBP_Logo.svg" alt="">
-                    </div>
+                    <a href="/404/">
 
-                    <div class="text-holder">
-                        <p>
-                            Через<br>СБП
-                        </p>
-                    </div>
+                        <div class="header">
+                            <img src="/svg/main/SBP_Logo.svg" alt="">
+                        </div>
+
+                        <div class="text-holder">
+                            <p>
+                                Через<br>СБП
+                            </p>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </section>
@@ -341,13 +349,17 @@
     </section>
 
     <section class="right-side">
-        <a href="/profile"> <img src="/svg/main/ProfileSquare.svg" alt="Профиль"></a>
-        <a href="/logout"> <img src="/svg/main/LogOut.svg" alt="Выйти"></a>
+        <a href="/profile/"> <img src="/svg/main/ProfileSquare.svg" alt="Профиль"></a>
+        <a href="/logout/"> <img src="/svg/main/LogOut.svg" alt="Выйти"></a>
     </section>
 
     <script type="module" src="/src/pages/main/main.ts"></script>
 </main>
 
+<footer>
+    <h2>© Это было не просто смело</h2>
+    <h2>ALCOBANK — лучший мультибанк для жизни и бизнеса</h2>
+</footer>
 
 </body>
 

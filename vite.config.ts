@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
     appType: 'mpa', // отключает SPA fallback
@@ -6,6 +7,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 index: 'index.html',
+                accounts: resolve(__dirname, 'accounts/new/index.html'),
                 // history: 'history.html', // или 'history/index.html'
             },
         },
