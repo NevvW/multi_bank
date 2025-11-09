@@ -9,6 +9,7 @@ export default defineConfig({
                 index: 'index.html',
                 accounts: resolve(__dirname, 'accounts/new/index.html'),
                 login: resolve(__dirname, 'login/index.html'),
+                logout: resolve(__dirname, 'logout/index.html'),
                 registration: resolve(__dirname, 'registration/index.html'),
                 // history: 'history.html', // или 'history/index.html'
             },
