@@ -22,8 +22,7 @@ const API_URL =
 const TRANSACTIONS_URL =
     'https://deallet.ru:5545/multibank/api/v1/transactions?from=2024-04-01&to=2024-04-30&page=1&page_size=50';
 
-const CARDS_URL =
-    'https://deallet.ru:5545/multibank/api/v1/cards?type=debit';
+const CARDS_URL = 'https://deallet.ru:5545/multibank/api/v1/cards';
 
 type Card = {
     account_balance?: string | number;
@@ -178,7 +177,32 @@ async function fetchAndRenderCards() {
         return;
     }
 
-    const res = await fetch(CARDS_URL, {
+    try {
+        const cards = await fetchCardsByTypes(['debit', 'credit'], token);
+        renderCards(cards);
+    } catch (err) {
+        if (err instanceof Error && err.message === 'Unauthorized') {
+            return;
+        }
+        console.error('Cards fetch failed:', err);
+    }
+}
+
+async function fetchCardsByTypes(types: string[], token: string): Promise<Card[]> {
+    const result: Card[] = [];
+
+    for (const type of types) {
+        const cards = await fetchCardsByType(type, token);
+        result.push(...cards);
+    }
+
+    return result;
+}
+
+async function fetchCardsByType(type: string, token: string): Promise<Card[]> {
+    const url = `${CARDS_URL}?type=${encodeURIComponent(type)}`;
+
+    const res = await fetch(url, {
         method: 'GET',
         headers: {
             accept: 'application/json',
@@ -187,25 +211,25 @@ async function fetchAndRenderCards() {
         credentials: 'include',
         cache: 'no-store',
     }).catch((e) => {
-        console.error('Cards fetch error', e);
+        console.error(`Cards fetch error (${type})`, e);
         return null;
     });
 
-    if (!res) return;
+    if (!res) return [];
 
     if (res.status === 401) {
         clearAllCookies();
         location.assign('/login/');
-        return;
+        throw new Error('Unauthorized');
     }
 
     if (!res.ok) {
-        console.error('Cards fetch failed:', res.status, res.statusText);
-        return;
+        console.error(`Cards fetch failed (${type}):`, res.status, res.statusText);
+        return [];
     }
 
     const data: CardsResp = await res.json();
-    renderCards(data.cards ?? []);
+    return data.cards ?? [];
 }
 
 function renderCards(cards: Card[]) {
