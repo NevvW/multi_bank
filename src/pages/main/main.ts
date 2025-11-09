@@ -22,6 +22,21 @@ const API_URL =
 const TRANSACTIONS_URL =
     'https://deallet.ru:5545/multibank/api/v1/transactions?from=2024-04-01&to=2024-04-30&page=1&page_size=50';
 
+const CARDS_URL =
+    'https://deallet.ru:5545/multibank/api/v1/cards?type=debit';
+
+type Card = {
+    account_balance?: string | number;
+    account_number?: string;
+    card_id?: string;
+    card_name?: string;
+    card_number?: string;
+};
+
+type CardsResp = {
+    cards?: Card[];
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // Баланс
     fetchAndRenderBalances().catch(() => renderSum(0, true));
@@ -29,6 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchAndRenderHistory().catch(() => {
         // молча не трогаем плейсхолдеры, если что-то пошло не так
         console.error('Failed to render history');
+    });
+    // Карты
+    fetchAndRenderCards().catch(() => {
+        console.error('Failed to render cards');
     });
 });
 
@@ -148,6 +167,113 @@ async function fetchAndRenderHistory() {
         .slice(0, 3);
 
     renderHistory(txs);
+}
+
+/* ---------- Карты ---------- */
+async function fetchAndRenderCards() {
+    const token = getTokenFromCookies();
+    if (!token) {
+        clearAllCookies();
+        location.assign('/login/');
+        return;
+    }
+
+    const res = await fetch(CARDS_URL, {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+        credentials: 'include',
+        cache: 'no-store',
+    }).catch((e) => {
+        console.error('Cards fetch error', e);
+        return null;
+    });
+
+    if (!res) return;
+
+    if (res.status === 401) {
+        clearAllCookies();
+        location.assign('/login/');
+        return;
+    }
+
+    if (!res.ok) {
+        console.error('Cards fetch failed:', res.status, res.statusText);
+        return;
+    }
+
+    const data: CardsResp = await res.json();
+    renderCards(data.cards ?? []);
+}
+
+function renderCards(cards: Card[]) {
+    const ul = document.querySelector<HTMLUListElement>('#my-cards ul');
+    if (!ul) return;
+
+    ul.innerHTML = '';
+
+    for (const card of cards) {
+        ul.appendChild(buildCardItem(card));
+    }
+}
+
+function buildCardItem(card: Card): HTMLLIElement {
+    const li = document.createElement('li');
+    li.className = 'wallet-cell stroked';
+
+    const a = document.createElement('a');
+    a.href = card.account_number
+        ? `/accounts/${encodeURIComponent(card.account_number)}/`
+        : '#';
+
+    const headerDiv = document.createElement('div');
+    headerDiv.className = 'header';
+
+    const cardImg = document.createElement('img');
+    cardImg.src = '/svg/main/Card.svg';
+    cardImg.alt = '';
+
+    const bankImg = document.createElement('img');
+    bankImg.src = mapCardBankLogo(card.card_id ?? '');
+    bankImg.alt = '';
+    bankImg.className = 'bank-logo';
+
+    headerDiv.appendChild(cardImg);
+    headerDiv.appendChild(bankImg);
+
+    const textHolder = document.createElement('div');
+    textHolder.className = 'text-holder';
+
+    const balanceP = document.createElement('p');
+    const balanceNumber = Number(card.account_balance);
+    balanceP.textContent = Number.isFinite(balanceNumber)
+        ? formatRub(balanceNumber)
+        : String(card.account_balance ?? '0');
+
+    const secondaryP = document.createElement('p');
+    secondaryP.className = 'secondary';
+    const digits = (card.card_number ?? '').replace(/\D/g, '');
+    const lastFour = digits.slice(-4);
+    const maskedNumber = lastFour ? `•• ${lastFour}` : '';
+    secondaryP.textContent = [card.card_name ?? '', maskedNumber].filter(Boolean).join(' ').trim();
+
+    textHolder.appendChild(balanceP);
+    textHolder.appendChild(secondaryP);
+
+    a.appendChild(headerDiv);
+    a.appendChild(textHolder);
+
+    li.appendChild(a);
+    return li;
+}
+
+function mapCardBankLogo(cardId: string): string {
+    const normalized = cardId.toLowerCase();
+    if (normalized.includes('-abank-')) return '/svg/bankLogo/ABankLogo.png';
+    if (normalized.includes('-sbank-')) return '/svg/bankLogo/SBankLogo.png';
+    return '/svg/bankLogo/VBankLogo.png';
 }
 
 function renderHistory(txs: Tx[]) {
