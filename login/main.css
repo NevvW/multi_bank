@@ -84,3 +84,19 @@ button{
     font-size: 24px;
     color: var(--light-text-inverse);
 }
+
+.button-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 50px;
+    width: 100%;
+}
+
+a{
+    font-family: var(--font-family), sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #878787;
+}
