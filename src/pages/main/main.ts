@@ -17,7 +17,7 @@ type Tx = {
 };
 
 const API_URL =
-    'https://deallet.ru:5545/multibank/api/v1/accounts?include_balances=true&type=debit';
+    'https://deallet.ru:5545/multibank/api/v1/accounts?include_balances=true';
 
 const TRANSACTIONS_URL =
     'https://deallet.ru:5545/multibank/api/v1/transactions?from=2024-04-01&to=2024-04-30&page=1&page_size=50';
