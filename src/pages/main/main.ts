@@ -6,7 +6,7 @@ type ApiResp = {
 };
 
 const API_URL =
-    'http://87.251.66.140:5545/multibank/api/v1/accounts?include_balances=true&type=debit';
+    'https://deallet.ru:5545/multibank/api/v1/accounts?include_balances=true&type=debit';
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchAndRender().catch(() => renderSum(0, true));

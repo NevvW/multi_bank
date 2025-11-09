@@ -14,7 +14,7 @@ type RegisterResponse = {
     };
 };
 
-const API_URL = "http://87.251.66.140:5545/multibank/api/v1/auth/register";
+const API_URL = "https://deallet.ru:5545/multibank/api/v1/auth/register";
 
 function setCookie(name: string, value: string, expiresAtISO?: string) {
     // HttpOnly из JS поставить нельзя.
